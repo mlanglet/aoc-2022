@@ -31,7 +31,7 @@ with open('input') as rounds:
             elif moves[0] == 'C':
                 totalScore += 6
 
-    print('The most total score of the first strategy is %d' % totalScore)
+    print('The total score of the first strategy is %d' % totalScore)
 
 # Part 2
 with open('input') as rounds:
@@ -65,4 +65,4 @@ with open('input') as rounds:
             elif moves[0] == 'C':
                 totalScore += 7
 
-    print('The most total score of the second strategy is %d' % totalScore)
+    print('The total score of the second strategy is %d' % totalScore)
