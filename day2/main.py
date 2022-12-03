@@ -1,68 +1,40 @@
 
 # Part 1
-with open('input') as rounds:
+with open('input') as file:
     totalScore = 0
-    # A Rock - X rock - 1 point
-    # B Paper - Y paper - 2 points
-    # C Scissors - Z Scissors - 3 points
-    # win 6, draw 3, loss 0
-    for round in rounds:
-        round = round.rstrip('\n')
-        moves = round.split(" ")
-        if moves[1] == 'X':
-            if moves[0] == 'A':
-                totalScore += 4
-            elif moves[0] == 'B':
-                totalScore += 1
-            elif moves[0] == 'C':
-                totalScore += 7
-        if moves[1] == 'Y':
-            if moves[0] == 'A':
-                totalScore += 8
-            elif moves[0] == 'B':
-                totalScore += 5
-            elif moves[0] == 'C':
-                totalScore += 2
-        if moves[1] == 'Z':
-            if moves[0] == 'A':
-                totalScore += 3
-            elif moves[0] == 'B':
-                totalScore += 9
-            elif moves[0] == 'C':
-                totalScore += 6
+    valueMap = {
+        'A X': 4,
+        'B X': 1,
+        'C X': 7,
+        'A Y': 8,
+        'B Y': 5,
+        'C Y': 2,
+        'A Z': 3,
+        'B Z': 9,
+        'C Z': 6,
+    }
+
+    for move in file:
+        totalScore += valueMap.get(move.strip('\n'))
 
     print('The total score of the first strategy is %d' % totalScore)
 
 # Part 2
-with open('input') as rounds:
+with open('input') as file:
     totalScore = 0
-    # A Rock - X lose - 1 point
-    # B Paper - Y draw - 2 points
-    # C Scissors - Z win - 3 points
-    # win 6, draw 3, loss 0
-    for round in rounds:
-        round = round.rstrip('\n')
-        moves = round.split(" ")
-        if moves[1] == 'X':
-            if moves[0] == 'A':
-                totalScore += 3
-            elif moves[0] == 'B':
-                totalScore += 1
-            elif moves[0] == 'C':
-                totalScore += 2
-        if moves[1] == 'Y':
-            if moves[0] == 'A':
-                totalScore += 4
-            elif moves[0] == 'B':
-                totalScore += 5
-            elif moves[0] == 'C':
-                totalScore += 6
-        if moves[1] == 'Z':
-            if moves[0] == 'A':
-                totalScore += 8
-            elif moves[0] == 'B':
-                totalScore += 9
-            elif moves[0] == 'C':
-                totalScore += 7
+    valueMap = {
+        'A X': 3,
+        'B X': 1,
+        'C X': 2,
+        'A Y': 4,
+        'B Y': 5,
+        'C Y': 6,
+        'A Z': 8,
+        'B Z': 9,
+        'C Z': 7,
+    }
+
+    for move in file:
+        totalScore += valueMap.get(move.strip('\n'))
 
     print('The total score of the second strategy is %d' % totalScore)
