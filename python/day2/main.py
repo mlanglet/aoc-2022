@@ -1,6 +1,6 @@
 
 # Part 1
-with open('input') as file:
+with open('../../input/day2') as file:
     totalScore = 0
     valueMap = {
         'A X': 4,
@@ -20,7 +20,7 @@ with open('input') as file:
     print('The total score of the first strategy is %d' % totalScore)
 
 # Part 2
-with open('input') as file:
+with open('../../input/day2') as file:
     totalScore = 0
     valueMap = {
         'A X': 3,

@@ -3,7 +3,7 @@ import string
 priorityValues = list(string.ascii_lowercase) + list(string.ascii_uppercase)
 
 # Part 1
-with open('input') as backpacks:
+with open('../../input/day3') as backpacks:
     prioritySum = 0
     for backpack in backpacks:
         items = backpack.rstrip('\n')
@@ -22,7 +22,7 @@ def calculate_intersecting_priority_value(items):
     return priorityValues.index(commonLetter) + 1
 
 
-with open('input') as backpacks:
+with open('../../input/day3') as backpacks:
     prioritySum, items = 0, []
     for backpack in backpacks:
         if len(items) == 3:

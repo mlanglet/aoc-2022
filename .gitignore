@@ -1,1 +1,6 @@
-.idea/**
+.idea
+java/out/**
+rust/**/debug/**
+rust/**/target/**
+rust/**/*.rs.bk
+rust/**/Cargo.lock
