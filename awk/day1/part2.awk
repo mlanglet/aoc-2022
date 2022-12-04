@@ -4,16 +4,22 @@ BEGIN {
     TOP2 = 0
     TOP3 = 0
 }
-// {
+/^$/ {
     if(CURRENT > TOP1){
         TOP3 = TOP2
         TOP2 = TOP1
         TOP1 = CURRENT
-
+    }
+    else if(CURRENT > TOP2){
+        TOP3 = TOP2
+        TOP2 = CURRENT
+    }
+    else if(CURRENT > TOP3){
+        TOP3 = CURRENT
     }
     CURRENT = 0
 }
 /[0-9]+/ {
     CURRENT += $0
 }
-END { print(TOP1 + TOP2 + TOP3) }
+END { print (TOP1 + TOP2 + TOP3) }

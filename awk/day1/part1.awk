@@ -2,7 +2,7 @@ BEGIN {
     CURRENT = 0
     MAX = 0
 }
-// {
+/^$/ {
     if(CURRENT > MAX){
         MAX = CURRENT
     }
@@ -11,4 +11,4 @@ BEGIN {
 /[0-9]+/ {
     CURRENT += $0
 }
-END { print(MAX) } # 74394 is the correct answer
+END { print MAX }
