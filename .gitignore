@@ -4,3 +4,4 @@ rust/**/debug/**
 rust/**/target/**
 rust/**/*.rs.bk
 rust/**/Cargo.lock
+python/**/__pycache__
