@@ -3,10 +3,10 @@ import time
 from Point import Point
 from Rope import Rope
 
-UP = Point(0, 1)
-DOWN = Point(0, -1)
-LEFT = Point(1, 0)
-RIGHT = Point(-1, 0)
+UP = Point(0, -1)
+DOWN = Point(0, 1)
+LEFT = Point(-1, 0)
+RIGHT = Point(1, 0)
 
 
 def apply_moves(data: [str], length: int):
