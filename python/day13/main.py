@@ -1,81 +1,71 @@
 import sys
 import time
-from functools import reduce
+from functools import reduce, cmp_to_key
 from operator import add
 
 
-def is_ordered(value1, value2):
-    if type(value1) == type(int) and type(value2) == type(int):
-        if value1 > value2:
-            return False
-        return True
+def compare(left, right) -> int:
+    if type(left) == int and type(right) == int:
+        return left - right
 
-    if isinstance(value1, list) and isinstance(value2, int):
-        value2 = [value2]
+    if type(left) == list and type(right) == list:
+        if len(left) == 0:
+            if len(right) == 0:
+                return 0
+            else:
+                return -1
 
-    if isinstance(value1, int) and isinstance(value2, list):
-        value1 = [value1]
+        min_size = min(len(left), len(right))
+        for i in range(min_size):
+            check = compare(left[i], right[i])
+            if check != 0:
+                return check
 
-    for i in range(len(value1)):
-        if i == len(value2):
-            return False
-        if value1[i] > value2[i]:
-            return False
+        return len(left) - len(right)
 
-    return True
+    if type(left) == int:
+        return compare([left], right)
 
-
-def convert_value(line: str):
-    count_of_open_square_brackets = line.count("[")
-    index = line.find("[")
-    if count_of_open_square_brackets > 1:
-        line = line[0:index+1] + line[index+1:len(line)].replace("[", "")
-
-    count_of_closed_square_brackets = line.count("]")
-    index = line.rfind("]")
-    if count_of_closed_square_brackets > 1:
-        line = line[0:index].replace("]", "") + line[index:len(line)]
-
-    while line.find(",,") > -1:
-        line = line.replace(",,", ",")
-
-    while line.find("[,") > -1:
-        line = line.replace("[,", "[")
-
-    return line
+    return compare(left, [right])
 
 
 def part_one(data):
-    packet1 = None
-    packet2 = None
+    left = None
+    right = None
     ordered_pair_indexes = []
     index = 1
 
     for line in data:
         if line == '\n':
-            if is_ordered(packet1, packet2):
-                print('packets \n{}\n{}\nare ordered!'.format(packet1, packet2))
+            if compare(left, right) <= 0:
                 ordered_pair_indexes.append(index)
-            packet1 = None
-            packet2 = None
+            left = None
+            right = None
             index += 1
             continue
 
         line = line.strip()
-        if packet1 is None:
-            packet1 = eval(line)
+        if left is None:
+            left = eval(line)
         else:
-            packet2 = eval(line)
+            right = eval(line)
 
     answer = reduce(add, ordered_pair_indexes)
-
-    print(ordered_pair_indexes)
 
     print('{} sum of indexes of pairs that are in order'.format(answer))
 
 
 def part_two(data):
-    print('Part two!')
+    packets = [[2], [6]]
+    for line in data:
+        if line == '\n':
+            continue
+        packets.append(eval(line))
+
+    sorted_packets = sorted(packets, key=cmp_to_key(compare))
+
+    print('The product of indexes of the divider packets is {}'
+          .format((sorted_packets.index([2]) + 1) * (sorted_packets.index([6]) + 1)))
 
 
 def main() -> int:
