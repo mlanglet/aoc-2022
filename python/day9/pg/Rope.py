@@ -1,4 +1,6 @@
 import pygame as pg
+from typing import Tuple
+
 from ScreenAdapter import ScreenAdapter
 from Point import Point
 
@@ -75,5 +77,5 @@ class Rope:
         pg.draw.rect(screen, HEAD_COLOR, rect)
 
     @staticmethod
-    def fade_knot(i) -> tuple[int, int, int]:
+    def fade_knot(i) -> Tuple[int, int, int]:
         return (i * 25), 255 - (i * 25), 0

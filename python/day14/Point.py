@@ -34,4 +34,7 @@ class Point:
     def distance(self, other) -> int:
         return int(math.sqrt((other.get_x() - self.get_x()) ** 2 + (other.get_y() - self.get_y()) ** 2))
 
-
+    @staticmethod
+    def parse(data: str):
+        pair = data.split(",")
+        return Point(int(pair[0]), int(pair[1]))

@@ -1,3 +1,5 @@
+from typing import Set
+
 import pygame as pg
 from Point import Point
 
@@ -48,7 +50,7 @@ class Command:
 
         return self._current_direction
 
-    def draw(self, screen: pg.Surface, history: set[Point]):
+    def draw(self, screen: pg.Surface, history: Set[Point]):
         move_counter_text = self._font.render("Move: {}".format(self._command_counter), True, TEXT_COLOR)
         points_counter_text = self._font.render("Points visited by tail: {}".format(len(history)), True, TEXT_COLOR)
 
