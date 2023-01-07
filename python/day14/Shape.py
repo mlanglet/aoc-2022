@@ -1,7 +1,5 @@
 from typing import Tuple
 
-import pygame as pg
-
 from Point import Point
 
 COLOR = (255, 255, 255)
@@ -11,7 +9,6 @@ class Shape:
 
     def __init__(self, vertices: [Point]):
         self._vertices = vertices
-
 
     @staticmethod
     def parse(data: str):
@@ -47,14 +44,6 @@ class Shape:
             if distance > 0:
                 for j in range(0, distance):
                     new_solid = previous + modifier
-
-
-
-
-
-
-
-
                     solid_area.append(new_solid)
                     previous = new_solid
 
