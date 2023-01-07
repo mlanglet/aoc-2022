@@ -1,7 +1,7 @@
 from typing import Tuple
 
 from pygame.rect import Rect
-from Point import Point
+from python.day14.Point import Point
 
 
 class ScreenAdapter:

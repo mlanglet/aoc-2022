@@ -47,6 +47,14 @@ class Shape:
             if distance > 0:
                 for j in range(0, distance):
                     new_solid = previous + modifier
+
+
+
+
+
+
+
+
                     solid_area.append(new_solid)
                     previous = new_solid
 

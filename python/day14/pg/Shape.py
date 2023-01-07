@@ -2,7 +2,7 @@ from typing import Tuple
 
 import pygame as pg
 
-from Point import Point
+from python.day14.Point import Point
 from ScreenAdapter import ScreenAdapter
 
 COLOR = (255, 255, 255)

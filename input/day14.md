@@ -121,7 +121,7 @@ Once all 24 units of sand shown above have come to rest, all further sand flows 
 ```
 Using your scan, simulate the falling sand. How many units of sand come to rest before sand starts flowing into the abyss below?
 
---- Part Two ---
+# Part Two
 
 You realize you misread the scan. There isn't an endless void at the bottom of the scan - there's floor, and you're standing on it!
 

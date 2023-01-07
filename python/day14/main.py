@@ -8,7 +8,7 @@ from python.day14.Sand import Sand
 
 
 def run_simulation(solid_area: Dict[Point, bool]) -> int:
-    sand_pile = []
+    sand_counter = 0
     falling_grain = Sand()
 
     while True:
@@ -28,14 +28,14 @@ def run_simulation(solid_area: Dict[Point, bool]) -> int:
             falling_grain.set_next_pos(next_pos)
         else:
             solid_area[falling_grain.get_pos()] = True
-            sand_pile.append(falling_grain)
+            sand_counter += 1
             if falling_grain.is_blocking_new_sand():
-                return len(sand_pile)
+                return sand_counter
 
             falling_grain = Sand()
 
         if falling_grain.is_falling_into_the_abyss():
-            return len(sand_pile)
+            return sand_counter
 
 
 def is_point_blocked(next_pos: Point, solid: Dict[Point, bool]):
@@ -64,7 +64,7 @@ def part_two(data):
             if point.get_y() > max_y:
                 max_y = point.get_y()
 
-    floor = Shape([Point(-1000, max_y + 2), Point(2000, max_y + 2)])
+    floor = Shape([Point(0, max_y + 2), Point(1000, max_y + 2)])
     for tile in floor.get_solid_area():
         solid_area[tile] = True
 
