@@ -2,9 +2,6 @@ from typing import Tuple
 
 from Point import Point
 
-COLOR = (255, 255, 255)
-
-
 class Shape:
 
     def __init__(self, vertices: [Point]):
