@@ -1,4 +1,6 @@
-import string
+import string, time
+
+t0 = time.time_ns()
 
 priorityValues = list(string.ascii_lowercase) + list(string.ascii_uppercase)
 
@@ -32,3 +34,6 @@ with open('../../input/day3') as backpacks:
     prioritySum += calculate_intersecting_priority_value(items)
 
     print('The sum of priorities for badge authentication is %d' % prioritySum)
+
+
+print('The elapsed time is %d' % (time.time_ns() - t0))
